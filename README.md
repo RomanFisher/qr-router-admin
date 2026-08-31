@@ -14,22 +14,67 @@ a toggle for light mode (remembered in the browser's `localStorage`),
 responsive layout. Everything runs in Docker containers, with no third-party
 cloud services and nothing extra to rent.
 
-## Quick start (by IP / no domain)
+## Deployment (by IP / no domain)
 
-You only need Docker + Docker Compose.
+### Prerequisites
 
+Docker with the Compose plugin (check with `docker compose version`). If
+Docker isn't installed yet on the server (Ubuntu/Debian):
 ```
-cp .env.example .env
-docker compose up -d --build
+curl -fsSL https://get.docker.com | sh
+sudo usermod -aG docker $USER   # then log back in
 ```
 
-Open `http://localhost:3000` (or `http://<server-IP>:3000`) — on first visit
-you'll see a form to create the admin account (username + password, minimum
-8 characters). There is no default password anywhere in the code: until an
-account is created through this form, logging in is impossible.
+### Steps
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/RomanFisher/qr-router-admin.git
+   cd qr-router-admin
+   ```
+2. Create the config file:
+   ```
+   cp .env.example .env
+   ```
+3. Start it:
+   ```
+   docker compose up -d --build
+   ```
+4. Open `http://localhost:3000` (locally) or `http://<server-IP>:3000` (on a
+   remote server) — you'll see a form to create the admin account (username
+   + password, minimum 8 characters). There is no default password anywhere
+   in the code: until an account is created through this form, logging in
+   is impossible.
 
 Then: create a code → add one or more links → pick the active one → download
 the QR (PNG) with the button and print it.
+
+### If this is a remote server (VPS)
+
+- Allow the port through the firewall, if one is enabled:
+  ```
+  sudo ufw allow 3000/tcp
+  ```
+- On cloud providers (AWS/DigitalOcean/Hetzner, etc.) you also need to open
+  the port in the Security Group / Firewall rules in the provider's web
+  console — `ufw` on the server alone is often not enough.
+- For a real domain and HTTPS without exposing port 3000 at all, see the
+  section below.
+
+## Changing the port if 3000 is taken
+
+By default the app is reachable on port 3000. If something else on the
+machine is already using it, set in `.env`:
+```
+HOST_PORT=8080
+```
+and restart:
+```
+docker compose up -d --build
+```
+Then open it at the new port: `http://localhost:8080`. Inside the container
+the port stays fixed at 3000 — `HOST_PORT` only changes the externally
+visible port, so nothing else needs to change.
 
 ## Running with your own domain and HTTPS (Caddy)
 

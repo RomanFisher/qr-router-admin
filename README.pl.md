@@ -14,23 +14,67 @@ motyw domyślnie z przełącznikiem na jasny (zapamiętywany w `localStorage`
 przeglądarki), responsywny układ. Wszystko działa w kontenerach Docker, bez
 zewnętrznych usług chmurowych i bez wynajmowania czegokolwiek dodatkowego.
 
-## Szybki start (po IP / bez domeny)
+## Wdrożenie (po IP / bez domeny)
 
-Potrzebny jest tylko Docker + Docker Compose.
+### Wymagania
 
+Docker z wtyczką Compose (sprawdź: `docker compose version`). Jeśli na
+serwerze (Ubuntu/Debian) Docker nie jest jeszcze zainstalowany:
 ```
-cp .env.example .env
-docker compose up -d --build
+curl -fsSL https://get.docker.com | sh
+sudo usermod -aG docker $USER   # potem zaloguj się ponownie
 ```
 
-Otwórz `http://localhost:3000` (lub `http://<IP-serwera>:3000`) — przy
-pierwszym wejściu pojawi się formularz utworzenia konta administratora
-(login + hasło, minimum 8 znaków). W kodzie nie ma żadnego domyślnego hasła:
-dopóki konto nie zostanie utworzone przez ten formularz, zalogowanie się
-jest niemożliwe.
+### Kroki
+
+1. Sklonuj repozytorium:
+   ```
+   git clone https://github.com/RomanFisher/qr-router-admin.git
+   cd qr-router-admin
+   ```
+2. Utwórz plik konfiguracyjny:
+   ```
+   cp .env.example .env
+   ```
+3. Uruchom:
+   ```
+   docker compose up -d --build
+   ```
+4. Otwórz `http://localhost:3000` (lokalnie) lub `http://<IP-serwera>:3000`
+   (na zdalnym serwerze) — pojawi się formularz utworzenia konta
+   administratora (login + hasło, minimum 8 znaków). W kodzie nie ma
+   żadnego domyślnego hasła: dopóki konto nie zostanie utworzone przez ten
+   formularz, zalogowanie się jest niemożliwe.
 
 Dalej: utwórz kod → dodaj jeden lub więcej linków → wybierz aktywny →
 pobierz kod QR (PNG) przyciskiem i wydrukuj.
+
+### Jeśli to zdalny serwer (VPS)
+
+- Zezwól na port w zaporze sieciowej, jeśli jest włączona:
+  ```
+  sudo ufw allow 3000/tcp
+  ```
+- U dostawców chmury (AWS/DigitalOcean/Hetzner itd.) trzeba dodatkowo
+  otworzyć port w Security Group / regułach zapory w panelu webowym
+  dostawcy — sam `ufw` na serwerze często nie wystarczy.
+- Dla prawdziwej domeny i HTTPS bez wystawiania portu 3000 na zewnątrz —
+  patrz sekcja poniżej.
+
+## Zmiana portu, jeśli 3000 jest zajęty
+
+Domyślnie aplikacja jest dostępna na porcie 3000. Jeśli jest on już zajęty
+przez inny proces na maszynie, ustaw w `.env`:
+```
+HOST_PORT=8080
+```
+i uruchom ponownie:
+```
+docker compose up -d --build
+```
+Następnie otwórz pod nowym portem: `http://localhost:8080`. Wewnątrz
+kontenera port pozostaje ustalony na 3000 — `HOST_PORT` zmienia tylko port
+widoczny na zewnątrz, więc nic więcej nie trzeba zmieniać.
 
 ## Uruchomienie z własną domeną i HTTPS (Caddy)
 
