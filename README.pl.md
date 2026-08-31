@@ -6,6 +6,35 @@ Jeden statyczny kod QR, który zawsze prowadzi na `<domena>/r/<slug>`. Dokąd
 faktycznie przekierowuje — decyduje administrator w panelu, wybierając
 aktywny link z listy. Sam kod QR przy tym się nie zmienia.
 
+## Zrzuty ekranu
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="docs/screenshots/setup.png" alt="Ekran pierwszej konfiguracji" width="100%">
+      <br><b>Pierwsza konfiguracja</b> — tworzenie konta administratora
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/dashboard.png" alt="Panel z listą kodów QR" width="100%">
+      <br><b>Panel</b> — lista kodów QR
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="docs/screenshots/code-detail.png" alt="Strona kodu z QR i linkami" width="100%">
+      <br><b>Strona kodu</b> — kod QR i przełączanie aktywnego linku
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/settings.png" alt="Strona ustawień" width="100%">
+      <br><b>Ustawienia</b> — domena bazowa i hasło
+    </td>
+  </tr>
+</table>
+
+*(Zrzutów ekranu jeszcze nie ma — zobacz
+[`docs/screenshots/`](docs/screenshots/), gdzie dokładnie wskazano, który
+plik gdzie zapisać.)*
+
 ## Stos technologiczny
 
 Node.js + Express + SQLite (jeden plik, bez osobnego kontenera bazy danych)

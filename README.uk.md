@@ -6,6 +6,34 @@
 перенаправляє далі — вирішує адмін через панель керування, обираючи активне
 посилання зі списку. Сам QR-код при цьому не змінюється.
 
+## Скріншоти
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="docs/screenshots/setup.png" alt="Екран першого налаштування" width="100%">
+      <br><b>Перше налаштування</b> — створення акаунту адміна
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/dashboard.png" alt="Дашборд зі списком QR-кодів" width="100%">
+      <br><b>Дашборд</b> — список QR-кодів
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="docs/screenshots/code-detail.png" alt="Сторінка коду з QR і посиланнями" width="100%">
+      <br><b>Сторінка коду</b> — QR-код і перемикання активного посилання
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/settings.png" alt="Сторінка налаштувань" width="100%">
+      <br><b>Налаштування</b> — базовий домен і пароль
+    </td>
+  </tr>
+</table>
+
+*(Скріншотів ще немає — дивись [`docs/screenshots/`](docs/screenshots/), де
+точно вказано який файл куди зберегти.)*
+
 ## Стек
 
 Node.js + Express + SQLite (файл, без окремого контейнера БД) + EJS.

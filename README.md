@@ -6,6 +6,34 @@ One static QR code that always points to `<domain>/r/<slug>`. Where it
 actually redirects is decided by the admin through a control panel, by
 picking the active link from a list. The QR code itself never changes.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="docs/screenshots/setup.png" alt="First-time setup screen" width="100%">
+      <br><b>First-time setup</b> — creating the admin account
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/dashboard.png" alt="Dashboard with a list of QR codes" width="100%">
+      <br><b>Dashboard</b> — the list of QR codes
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="docs/screenshots/code-detail.png" alt="Code page showing the QR code and its links" width="100%">
+      <br><b>Code page</b> — the QR code and switching the active link
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/settings.png" alt="Settings page" width="100%">
+      <br><b>Settings</b> — base domain and password
+    </td>
+  </tr>
+</table>
+
+*(Screenshots not added yet — see [`docs/screenshots/`](docs/screenshots/) for
+exactly which file to save where.)*
+
 ## Stack
 
 Node.js + Express + SQLite (a single file, no separate DB container) + EJS.
