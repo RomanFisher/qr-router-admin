@@ -1,0 +1,39 @@
+<%- include('partials/header', { title: t('pageTitles.settings'), flash }) %>
+
+<p class="text-sm"><a href="/admin" class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100">&larr; <%= t('code.backLink') %></a></p>
+<h1 class="mt-2 text-xl font-semibold"><%= t('settings.heading') %></h1>
+
+<form method="post" action="/admin/settings" class="mt-5 flex max-w-md flex-col gap-3">
+  <label class="flex flex-col gap-1 text-sm">
+    <span class="text-neutral-600 dark:text-neutral-400"><%= t('settings.baseDomainLabel') %></span>
+    <input type="text" name="base_domain" value="<%= baseDomain %>" placeholder="<%= t('settings.baseDomainPlaceholder') %>"
+      class="rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100" />
+  </label>
+  <p class="text-xs text-neutral-500 dark:text-neutral-400"><%= t('settings.baseDomainHint') %></p>
+  <button type="submit" class="self-start rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500"><%= t('settings.save') %></button>
+</form>
+
+<hr class="mt-8 border-neutral-200 dark:border-neutral-800" />
+
+<h2 class="mt-6 text-lg font-semibold"><%= t('settings.passwordHeading') %></h2>
+<p class="mt-1 text-xs text-neutral-500 dark:text-neutral-400"><%= t('settings.loginLabel') %> <code class="rounded bg-neutral-100 px-1.5 py-0.5 dark:bg-neutral-800"><%= adminUsername %></code></p>
+<form method="post" action="/admin/settings/password" class="mt-3 flex max-w-md flex-col gap-3">
+  <label class="flex flex-col gap-1 text-sm">
+    <span class="text-neutral-600 dark:text-neutral-400"><%= t('settings.currentPassword') %></span>
+    <input type="password" name="current_password" autocomplete="current-password" required
+      class="rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100" />
+  </label>
+  <label class="flex flex-col gap-1 text-sm">
+    <span class="text-neutral-600 dark:text-neutral-400"><%= t('settings.newPassword') %></span>
+    <input type="password" name="new_password" autocomplete="new-password" minlength="8" required
+      class="rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100" />
+  </label>
+  <label class="flex flex-col gap-1 text-sm">
+    <span class="text-neutral-600 dark:text-neutral-400"><%= t('settings.newPasswordConfirm') %></span>
+    <input type="password" name="new_password_confirm" autocomplete="new-password" minlength="8" required
+      class="rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100" />
+  </label>
+  <button type="submit" class="self-start rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500"><%= t('settings.changePassword') %></button>
+</form>
+
+<%- include('partials/footer') %>

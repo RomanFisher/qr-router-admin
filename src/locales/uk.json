@@ -1,0 +1,86 @@
+{
+  "app": { "name": "QR Router Admin" },
+  "nav": { "codes": "Коди", "settings": "Налаштування", "logout": "Вийти" },
+  "pageTitles": {
+    "login": "Вхід — QR Router Admin",
+    "setup": "Перше налаштування — QR Router Admin",
+    "dashboard": "Коди — QR Router Admin",
+    "settings": "Налаштування — QR Router Admin"
+  },
+  "login": {
+    "heading": "Вхід",
+    "username": "Логін",
+    "password": "Пароль",
+    "submit": "Увійти"
+  },
+  "setup": {
+    "heading": "Створення акаунту адміна",
+    "hint": "Це відбувається один раз — після цього форма стане недоступною.",
+    "username": "Логін",
+    "password": "Пароль (мінімум 8 символів)",
+    "passwordConfirm": "Повторіть пароль",
+    "submit": "Створити акаунт"
+  },
+  "dashboard": {
+    "heading": "QR-коди",
+    "newTitlePlaceholder": "Назва (напр. Роутер вхід)",
+    "create": "Створити код",
+    "empty": "Ще немає жодного коду. Створіть перший вище."
+  },
+  "code": {
+    "backLink": "Усі коди",
+    "permalinkNote": "Цей QR завжди веде на:",
+    "downloadPng": "Завантажити PNG",
+    "destinationsHeading": "Куди веде код",
+    "noDestinations": "Додайте хоча б одне посилання нижче.",
+    "makeActive": "Зробити активним",
+    "delete": "Видалити",
+    "addHeading": "Додати посилання",
+    "labelField": "Назва",
+    "labelPlaceholder": "напр. Wi-Fi інструкція",
+    "urlField": "URL",
+    "urlPlaceholder": "https://...",
+    "addButton": "Додати",
+    "deleteCode": "Видалити цей код",
+    "confirmDeleteDestination": "Видалити це посилання?",
+    "confirmDeleteCode": "Видалити цей код повністю? QR перестане працювати."
+  },
+  "settings": {
+    "heading": "Налаштування",
+    "baseDomainLabel": "Базовий домен",
+    "baseDomainPlaceholder": "https://qr.example.com",
+    "baseDomainHint": "Використовується при генерації QR-кодів (посилання виду домен/r/slug). Якщо залишити порожнім — визначається автоматично з адреси, за якою відкрито адмінку. Зміна домену не вплине на вже роздруковані коди — на них залишиться старий домен.",
+    "save": "Зберегти",
+    "passwordHeading": "Зміна пароля",
+    "loginLabel": "Логін:",
+    "currentPassword": "Поточний пароль",
+    "newPassword": "Новий пароль (мінімум 8 символів)",
+    "newPasswordConfirm": "Повторіть новий пароль",
+    "changePassword": "Змінити пароль"
+  },
+  "flash": {
+    "titleRequired": "Вкажіть назву",
+    "destinationInvalid": "Вкажіть назву та посилання (має починатись з http:// або https://)",
+    "destinationAdded": "Посилання додано",
+    "destinationNotFound": "Посилання не знайдено",
+    "activeSet": "Активне посилання: {{label}}",
+    "destinationDeleted": "Посилання видалено",
+    "codeDeleted": "Код видалено",
+    "settingsSaved": "Налаштування збережено",
+    "currentPasswordWrong": "Поточний пароль невірний",
+    "newPasswordTooShort": "Новий пароль має бути мінімум 8 символів",
+    "newPasswordsMismatch": "Нові паролі не співпадають",
+    "passwordChanged": "Пароль змінено"
+  },
+  "auth": {
+    "setupValidation": "Логін обовʼязковий, пароль — мінімум 8 символів",
+    "setupPasswordsMismatch": "Паролі не співпадають",
+    "rateLimited": "Забагато спроб. Спробуйте пізніше.",
+    "invalidCredentials": "Невірний логін або пароль"
+  },
+  "errors": {
+    "notFound": "Не знайдено",
+    "codeNotFound": "Код не знайдено",
+    "codeNotConfigured": "Цей код ще не налаштовано"
+  }
+}

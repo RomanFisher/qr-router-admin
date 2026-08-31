@@ -1,0 +1,86 @@
+{
+  "app": { "name": "QR Router Admin" },
+  "nav": { "codes": "Codes", "settings": "Settings", "logout": "Log out" },
+  "pageTitles": {
+    "login": "Log in — QR Router Admin",
+    "setup": "First-time setup — QR Router Admin",
+    "dashboard": "Codes — QR Router Admin",
+    "settings": "Settings — QR Router Admin"
+  },
+  "login": {
+    "heading": "Log in",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Log in"
+  },
+  "setup": {
+    "heading": "Create admin account",
+    "hint": "This happens once — the form will be unavailable afterwards.",
+    "username": "Username",
+    "password": "Password (minimum 8 characters)",
+    "passwordConfirm": "Confirm password",
+    "submit": "Create account"
+  },
+  "dashboard": {
+    "heading": "QR codes",
+    "newTitlePlaceholder": "Name (e.g. Router entrance)",
+    "create": "Create code",
+    "empty": "No codes yet. Create the first one above."
+  },
+  "code": {
+    "backLink": "All codes",
+    "permalinkNote": "This QR code always points to:",
+    "downloadPng": "Download PNG",
+    "destinationsHeading": "Where this code leads",
+    "noDestinations": "Add at least one link below.",
+    "makeActive": "Make active",
+    "delete": "Delete",
+    "addHeading": "Add a link",
+    "labelField": "Label",
+    "labelPlaceholder": "e.g. Wi-Fi instructions",
+    "urlField": "URL",
+    "urlPlaceholder": "https://...",
+    "addButton": "Add",
+    "deleteCode": "Delete this code",
+    "confirmDeleteDestination": "Delete this link?",
+    "confirmDeleteCode": "Delete this code entirely? The QR code will stop working."
+  },
+  "settings": {
+    "heading": "Settings",
+    "baseDomainLabel": "Base domain",
+    "baseDomainPlaceholder": "https://qr.example.com",
+    "baseDomainHint": "Used when generating QR codes (links of the form domain/r/slug). Leave empty to auto-detect from the address the admin panel is opened at. Changing the domain does not affect already-printed codes — they keep the old domain.",
+    "save": "Save",
+    "passwordHeading": "Change password",
+    "loginLabel": "Username:",
+    "currentPassword": "Current password",
+    "newPassword": "New password (minimum 8 characters)",
+    "newPasswordConfirm": "Confirm new password",
+    "changePassword": "Change password"
+  },
+  "flash": {
+    "titleRequired": "Enter a name",
+    "destinationInvalid": "Enter a label and a link (must start with http:// or https://)",
+    "destinationAdded": "Link added",
+    "destinationNotFound": "Link not found",
+    "activeSet": "Active link: {{label}}",
+    "destinationDeleted": "Link deleted",
+    "codeDeleted": "Code deleted",
+    "settingsSaved": "Settings saved",
+    "currentPasswordWrong": "Current password is incorrect",
+    "newPasswordTooShort": "New password must be at least 8 characters",
+    "newPasswordsMismatch": "New passwords do not match",
+    "passwordChanged": "Password changed"
+  },
+  "auth": {
+    "setupValidation": "Username is required, password must be at least 8 characters",
+    "setupPasswordsMismatch": "Passwords do not match",
+    "rateLimited": "Too many attempts. Please try again later.",
+    "invalidCredentials": "Invalid username or password"
+  },
+  "errors": {
+    "notFound": "Not found",
+    "codeNotFound": "Code not found",
+    "codeNotConfigured": "This code is not configured yet"
+  }
+}

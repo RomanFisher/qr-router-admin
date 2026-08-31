@@ -1,0 +1,86 @@
+{
+  "app": { "name": "QR Router Admin" },
+  "nav": { "codes": "Kody", "settings": "Ustawienia", "logout": "Wyloguj" },
+  "pageTitles": {
+    "login": "Logowanie — QR Router Admin",
+    "setup": "Pierwsza konfiguracja — QR Router Admin",
+    "dashboard": "Kody — QR Router Admin",
+    "settings": "Ustawienia — QR Router Admin"
+  },
+  "login": {
+    "heading": "Logowanie",
+    "username": "Login",
+    "password": "Hasło",
+    "submit": "Zaloguj się"
+  },
+  "setup": {
+    "heading": "Utwórz konto administratora",
+    "hint": "Dzieje się to jednorazowo — potem ten formularz będzie niedostępny.",
+    "username": "Login",
+    "password": "Hasło (minimum 8 znaków)",
+    "passwordConfirm": "Powtórz hasło",
+    "submit": "Utwórz konto"
+  },
+  "dashboard": {
+    "heading": "Kody QR",
+    "newTitlePlaceholder": "Nazwa (np. Wejście do routera)",
+    "create": "Utwórz kod",
+    "empty": "Nie ma jeszcze żadnego kodu. Utwórz pierwszy powyżej."
+  },
+  "code": {
+    "backLink": "Wszystkie kody",
+    "permalinkNote": "Ten kod QR zawsze prowadzi na:",
+    "downloadPng": "Pobierz PNG",
+    "destinationsHeading": "Dokąd prowadzi kod",
+    "noDestinations": "Dodaj poniżej przynajmniej jeden link.",
+    "makeActive": "Ustaw jako aktywny",
+    "delete": "Usuń",
+    "addHeading": "Dodaj link",
+    "labelField": "Nazwa",
+    "labelPlaceholder": "np. Instrukcja Wi-Fi",
+    "urlField": "URL",
+    "urlPlaceholder": "https://...",
+    "addButton": "Dodaj",
+    "deleteCode": "Usuń ten kod",
+    "confirmDeleteDestination": "Usunąć ten link?",
+    "confirmDeleteCode": "Usunąć ten kod całkowicie? Kod QR przestanie działać."
+  },
+  "settings": {
+    "heading": "Ustawienia",
+    "baseDomainLabel": "Domena bazowa",
+    "baseDomainPlaceholder": "https://qr.example.com",
+    "baseDomainHint": "Używana przy generowaniu kodów QR (linki w formacie domena/r/slug). Pozostaw puste, aby wykryć automatycznie z adresu, pod którym otwarty jest panel administracyjny. Zmiana domeny nie wpływa na już wydrukowane kody — pozostanie na nich stara domena.",
+    "save": "Zapisz",
+    "passwordHeading": "Zmiana hasła",
+    "loginLabel": "Login:",
+    "currentPassword": "Obecne hasło",
+    "newPassword": "Nowe hasło (minimum 8 znaków)",
+    "newPasswordConfirm": "Powtórz nowe hasło",
+    "changePassword": "Zmień hasło"
+  },
+  "flash": {
+    "titleRequired": "Podaj nazwę",
+    "destinationInvalid": "Podaj nazwę i link (musi zaczynać się od http:// lub https://)",
+    "destinationAdded": "Link dodany",
+    "destinationNotFound": "Link nie znaleziony",
+    "activeSet": "Aktywny link: {{label}}",
+    "destinationDeleted": "Link usunięty",
+    "codeDeleted": "Kod usunięty",
+    "settingsSaved": "Ustawienia zapisane",
+    "currentPasswordWrong": "Obecne hasło jest nieprawidłowe",
+    "newPasswordTooShort": "Nowe hasło musi mieć co najmniej 8 znaków",
+    "newPasswordsMismatch": "Nowe hasła nie są zgodne",
+    "passwordChanged": "Hasło zmienione"
+  },
+  "auth": {
+    "setupValidation": "Login jest wymagany, hasło musi mieć co najmniej 8 znaków",
+    "setupPasswordsMismatch": "Hasła nie są zgodne",
+    "rateLimited": "Zbyt wiele prób. Spróbuj ponownie później.",
+    "invalidCredentials": "Nieprawidłowy login lub hasło"
+  },
+  "errors": {
+    "notFound": "Nie znaleziono",
+    "codeNotFound": "Kod nie znaleziony",
+    "codeNotConfigured": "Ten kod nie został jeszcze skonfigurowany"
+  }
+}

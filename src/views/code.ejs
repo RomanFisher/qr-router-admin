@@ -1,0 +1,65 @@
+<%- include('partials/header', { title: code.title + ' — ' + t('app.name'), flash }) %>
+
+<p class="text-sm"><a href="/admin" class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100">&larr; <%= t('code.backLink') %></a></p>
+
+<h1 class="mt-2 text-xl font-semibold"><%= code.title %></h1>
+<p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+  <%= t('code.permalinkNote') %> <code class="rounded bg-neutral-100 px-1.5 py-0.5 text-xs dark:bg-neutral-800"><%= baseUrl %>/r/<%= code.slug %></code>
+</p>
+
+<div class="mt-6 flex flex-col gap-8 md:flex-row">
+  <div class="flex flex-col items-center gap-3 md:w-56 md:flex-shrink-0">
+    <img src="/admin/codes/<%= code.id %>/qr.png" alt="QR code" class="h-48 w-48 rounded-lg border border-neutral-200 bg-white dark:border-neutral-800" />
+    <a href="/admin/codes/<%= code.id %>/qr.png" download="<%= code.slug %>.png"
+      class="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500"><%= t('code.downloadPng') %></a>
+  </div>
+
+  <div class="min-w-0 flex-1">
+    <h2 class="text-sm font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400"><%= t('code.destinationsHeading') %></h2>
+    <% if (destinations.length === 0) { %>
+      <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-400"><%= t('code.noDestinations') %></p>
+    <% } %>
+
+    <ul class="mt-3 flex flex-col gap-2">
+      <% destinations.forEach(function(d) { %>
+        <li class="dest-item flex items-center justify-between gap-3 rounded-lg border p-3 <%= d.id === code.active_destination_id ? 'border-indigo-400 bg-indigo-50 dark:border-indigo-700 dark:bg-indigo-950/40' : 'border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900' %>">
+          <form method="post" action="/admin/codes/<%= code.id %>/active" class="flex min-w-0 flex-1 items-center gap-3">
+            <button type="submit" title="<%= t('code.makeActive') %>" class="text-lg leading-none text-indigo-600 dark:text-indigo-400">
+              <%= d.id === code.active_destination_id ? '●' : '○' %>
+            </button>
+            <input type="hidden" name="destination_id" value="<%= d.id %>" />
+            <div class="min-w-0">
+              <div class="truncate font-medium"><%= d.label %></div>
+              <div class="truncate text-xs text-neutral-500 dark:text-neutral-400"><%= d.url %></div>
+            </div>
+          </form>
+          <form method="post" action="/admin/codes/<%= code.id %>/destinations/<%= d.id %>/delete" onsubmit="return confirm('<%= t('code.confirmDeleteDestination') %>')">
+            <button type="submit" class="text-xs text-red-600 hover:underline dark:text-red-400"><%= t('code.delete') %></button>
+          </form>
+        </li>
+      <% }); %>
+    </ul>
+
+    <h3 class="mt-6 text-sm font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400"><%= t('code.addHeading') %></h3>
+    <form method="post" action="/admin/codes/<%= code.id %>/destinations" class="mt-3 flex max-w-md flex-col gap-3">
+      <label class="flex flex-col gap-1 text-sm">
+        <span class="text-neutral-600 dark:text-neutral-400"><%= t('code.labelField') %></span>
+        <input type="text" name="label" placeholder="<%= t('code.labelPlaceholder') %>" required
+          class="rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100" />
+      </label>
+      <label class="flex flex-col gap-1 text-sm">
+        <span class="text-neutral-600 dark:text-neutral-400"><%= t('code.urlField') %></span>
+        <input type="url" name="url" placeholder="<%= t('code.urlPlaceholder') %>" required
+          class="rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100" />
+      </label>
+      <button type="submit" class="self-start rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500"><%= t('code.addButton') %></button>
+    </form>
+  </div>
+</div>
+
+<hr class="mt-8 border-neutral-200 dark:border-neutral-800" />
+<form method="post" action="/admin/codes/<%= code.id %>/delete" onsubmit="return confirm('<%= t('code.confirmDeleteCode') %>')" class="mt-4">
+  <button type="submit" class="text-sm text-red-600 hover:underline dark:text-red-400"><%= t('code.deleteCode') %></button>
+</form>
+
+<%- include('partials/footer') %>

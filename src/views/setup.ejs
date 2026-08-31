@@ -1,0 +1,30 @@
+<% var showNav = false; var flash = null; %>
+<%- include('partials/header', { title: t('pageTitles.setup'), showNav, flash }) %>
+
+<div class="mx-auto mt-12 max-w-sm rounded-xl border border-neutral-200 bg-white p-6 shadow-sm sm:mt-16 dark:border-neutral-800 dark:bg-neutral-900">
+  <h1 class="text-lg font-semibold"><%= t('setup.heading') %></h1>
+  <p class="mt-1 text-xs text-neutral-500 dark:text-neutral-400"><%= t('setup.hint') %></p>
+  <% if (error) { %>
+    <div class="mt-3 rounded-lg border border-red-300 bg-red-50 px-3 py-2 text-sm text-red-700 dark:border-red-900 dark:bg-red-950 dark:text-red-400"><%= error %></div>
+  <% } %>
+  <form method="post" action="/setup" class="mt-5 flex flex-col gap-4">
+    <label class="flex flex-col gap-1 text-sm">
+      <span class="text-neutral-600 dark:text-neutral-400"><%= t('setup.username') %></span>
+      <input type="text" name="username" autocomplete="username" required autofocus
+        class="rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100" />
+    </label>
+    <label class="flex flex-col gap-1 text-sm">
+      <span class="text-neutral-600 dark:text-neutral-400"><%= t('setup.password') %></span>
+      <input type="password" name="password" autocomplete="new-password" minlength="8" required
+        class="rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100" />
+    </label>
+    <label class="flex flex-col gap-1 text-sm">
+      <span class="text-neutral-600 dark:text-neutral-400"><%= t('setup.passwordConfirm') %></span>
+      <input type="password" name="password_confirm" autocomplete="new-password" minlength="8" required
+        class="rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100" />
+    </label>
+    <button type="submit" class="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500"><%= t('setup.submit') %></button>
+  </form>
+</div>
+
+<%- include('partials/footer') %>
