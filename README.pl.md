@@ -31,10 +31,6 @@ aktywny link z listy. Sam kod QR przy tym się nie zmienia.
   </tr>
 </table>
 
-*(Zrzutów ekranu jeszcze nie ma — zobacz
-[`docs/screenshots/`](docs/screenshots/), gdzie dokładnie wskazano, który
-plik gdzie zapisać.)*
-
 ## Stos technologiczny
 
 Node.js + Express + SQLite (jeden plik, bez osobnego kontenera bazy danych)

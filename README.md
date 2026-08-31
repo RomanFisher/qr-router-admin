@@ -31,9 +31,6 @@ picking the active link from a list. The QR code itself never changes.
   </tr>
 </table>
 
-*(Screenshots not added yet — see [`docs/screenshots/`](docs/screenshots/) for
-exactly which file to save where.)*
-
 ## Stack
 
 Node.js + Express + SQLite (a single file, no separate DB container) + EJS.
